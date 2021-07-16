@@ -189,7 +189,8 @@ const winGameEnding = () => {
 oneplayerbttn.addEventListener("click", ()=>{
   gamemode.style.display = "none";
   bttnboard.style.display = "block";
-  playertitle.textContent = "Player 1"; 
+  playertitle.textContent = "Player 1";
+  playertitle.style.display = "block";
   player.reset();  
 });
 
