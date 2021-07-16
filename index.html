@@ -7,12 +7,12 @@
 </head>
 <body>
 
-
-    <div class="container"> 
+  <div class="row">
+    <!--                 ~ Player 1 ~                 -->
+    <div class="column container"> 
         <div class="box box1" >
             <p id="gamemode">
                 <button id="oneplayerbttn" class="ripple">1 Play</button>
-                <button id="twoplayersbttn" class="ripple">2 Play(TBC)</button>
             </p>
             <p id="gamestart" style="display:none">
                 <button id="gameStartbttn" class="ripple">Game Start</button>
@@ -20,10 +20,7 @@
         </div>
 
         <div class="box box2" >
-
             <p id="resultmsg" style="display:none"></p>
-
-            
         </div>
 
         <div class="box box3">
@@ -56,11 +53,65 @@
         </div>
 
         <div class="box box6" >
-            <p id="bttnboard" style="display:none">
-                <button id="rollbttn" class="ripple" >Roll</button>         
-            </p>
+            <div id="bttnboard" style="display:none">
+                <button id="rollbttn" class="ripple" >Roll</button>
+                <button id="holdbttn" class="ripple" >Hold</button>        
+            </div>
         </div>
     </div>
+
+    <!--                 ~ Player 2 ~                 -->
+    <div class="column container"> 
+        <div class="box box21" >
+            <p id="gamemode2">
+                <button id="twoplayersbttn" class="ripple">2 Play</button>
+            </p>
+            <p id="gamestart2" style="display:none">
+                <button id="gameStartbttn2" class="ripple">Game Start</button>
+            </p>
+        </div>
+        
+        <div class="box box22" >
+            <p id="resultmsg2" style="display:none"></p>
+        </div>
+
+        <div class="box box23">
+            <p id="playertitle2" style="display:none"></p>
+        </div>
+
+        <div class="box box24" >
+            <p id="scoreboard2" style="display:none"></p>
+        </div>
+
+        <div class="box box25" >
+            <p id="dicepic12" style="display:none">
+                <img id="image" src="photo\dice1.png">
+            </p>
+            <p id="dicepic22" style="display:none">
+                <img id="image" src="photo\dice2.png">
+            </p>
+            <p id="dicepic32" style="display:none">
+                <img id="image" src="photo\dice3.png">
+            </p>
+            <p id="dicepic42" style="display:none">
+                <img id="image" src="photo\dice4.png">
+            </p>
+            <p id="dicepic52" style="display:none">
+                <img id="image" src="photo\dice5.png">
+            </p>
+            <p id="dicepic62" style="display:none">
+                <img id="image" src="photo\dice6.png">
+            </p>
+        </div>
+
+        <div class="box box6" >
+            <div id="bttnboard2" style="display:none">
+                <button id="rollbttn2" class="ripple" >Roll</button>
+                <button id="holdbttn2" class="ripple" >Hold</button>       
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="app.js"></script>
 </body>
