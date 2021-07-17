@@ -5,6 +5,7 @@ const gamestart = document.getElementById("gamestart");
 const gameStartbttn = document.getElementById("gameStartbttn");
 const resultmsg = document.getElementById("resultmsg");
 const playertitle = document.getElementById("playertitle");
+const round = document.getElementById("round");
 const scoreboard = document.getElementById("scoreboard");
 const dicepic1 = document.getElementById("dicepic1");
 const dicepic2 = document.getElementById("dicepic2");
@@ -23,6 +24,7 @@ const gamestart2 = document.getElementById("gamestart2");
 const gameStartbttn2 = document.getElementById("gameStartbttn2");
 const resultmsg2 = document.getElementById("resultmsg2");
 const playertitle2 = document.getElementById("playertitle2");
+const round2 = document.getElementById("round2");
 const scoreboard2 = document.getElementById("scoreboard2");
 const dicepic12 = document.getElementById("dicepic12");
 const dicepic22 = document.getElementById("dicepic22");
@@ -53,39 +55,9 @@ class Player{
 
     rollDice(){
       this._numRoll++;
-
       let dice = Math.ceil(Math.random()* 6);
-
       this._currentScore = dice;
       this._sumScore += dice;
-
-      if (dice == 1){
-        this.loseGame();
-      }
-
-      if (this._sumScore>=winPoint){
-        this.winGame();
-      }
-
-      this.printResult();
-    }
-
-    winGame(){
-      this.printResult();
-      console.log(`Congratulations! You win.`);
-      console.log(`Please restart`);
-    }
-
-    loseGame(){
-      this.printResult();
-      console.log(`Dice 1 ~ You lose!`);
-      console.log(`Please restart`);
-    }
-
-    printResult(){
-      console.log(`Nos of Round ${this._numRoll}`);
-      console.log(`Current Score ${this._currentScore}`);
-      console.log(`Sum Score ${this._sumScore}`);
     }
  }
 
@@ -217,6 +189,24 @@ const showScoreBoard = (i, player) => {
 
 };
 
+const showRoundBoard = (i, player) => {
+
+  if(player == 1){
+    round.textContent = `Round ${i}`;
+
+    if (round.style.display == "none"){
+      round.style.display = "block";
+    }
+  }else{
+    round2.textContent = `Round ${i}`;
+
+    if (round2.style.display == "none"){
+      round2.style.display = "block";
+    }
+  }
+
+};
+
 const loseGameEnding = (player) => {
   if(player == 1){
     resultmsg.textContent = "You lose!";
@@ -229,7 +219,7 @@ const loseGameEnding = (player) => {
       resultmsg2.style.display = "block";
       bttnboard2.style.display = "none";
       gamestart2.style.display = "block";
-      gamestart.style.display = "none";
+      gamestart.style.display = "block";
     }
 
   }else{
@@ -243,7 +233,7 @@ const loseGameEnding = (player) => {
       resultmsg.style.display = "block";
       bttnboard.style.display = "none";
       gamestart.style.display = "block";
-      gamestart2.style.display = "none";
+      gamestart2.style.display = "block";
     }
   }
 
@@ -260,7 +250,7 @@ const winGameEnding = (player) => {
       resultmsg2.textContent = "You lose!";
       resultmsg2.style.display = "block";
       bttnboard2.style.display = "none";
-      gamestart2.style.display = "none";
+      gamestart2.style.display = "block";
     }
   }else{
     resultmsg2.textContent = "Congratulations! You win.";
@@ -272,7 +262,7 @@ const winGameEnding = (player) => {
       resultmsg.textContent = "You lose!";
       resultmsg.style.display = "block";
       bttnboard.style.display = "none";
-      gamestart.style.display = "none";
+      gamestart.style.display = "block";
     }
   }
 }
@@ -286,6 +276,8 @@ const restartGame = () => {
   playertitle.style.display = "none";
   scoreboard.textContent = "";
   scoreboard.style.display = "none";
+  round.textContent = "";
+  round.style.display = "none";
   dicepic1.style.display = "none";
   dicepic2.style.display = "none";
   dicepic3.style.display = "none";
@@ -302,6 +294,8 @@ const restartGame = () => {
   playertitle2.style.display = "none";
   scoreboard2.textContent = "";
   scoreboard2.style.display = "none";
+  round2.textContent = "";
+  round2.style.display = "none";
   dicepic12.style.display = "none";
   dicepic22.style.display = "none";
   dicepic32.style.display = "none";
@@ -317,7 +311,7 @@ const restartGame = () => {
 oneplayerbttn.addEventListener("click", ()=>{
   //Player 1
   gamemode.style.display = "none";
-  bttnboard.style.display = "block";
+  bttnboard.style.display = "flex";
   playertitle.textContent = "Player 1";
   playertitle.style.display = "block";
   rollbttn.style.display = "block";
@@ -336,7 +330,7 @@ oneplayerbttn.addEventListener("click", ()=>{
 twoplayersbttn.addEventListener("click", ()=>{
   //Player 1
   gamemode.style.display = "none";
-  bttnboard.style.display = "block";
+  bttnboard.style.display = "flex";
   playertitle.textContent = "Player 1";
   playertitle.style.display = "block";
   rollbttn.style.display = "block";
@@ -347,7 +341,7 @@ twoplayersbttn.addEventListener("click", ()=>{
 
   //Player 2
   gamemode2.style.display = "none";
-  bttnboard2.style.display = "block";
+  bttnboard2.style.display = "flex";
   rollbttn2.style.display = "block";
   holdbttn2.style.display = "block";
   rollbttn2.disabled = true;
@@ -364,6 +358,7 @@ rollbttn.addEventListener("click", ()=>{
   player.rollDice();
   showDicePicture(player._currentScore, 1);
   showScoreBoard(player._sumScore, 1);
+  showRoundBoard(player._numRoll, 1);
 
   if (player._currentScore == 1){
     loseGameEnding(1);
@@ -380,6 +375,7 @@ rollbttn2.addEventListener("click", ()=>{
   player2.rollDice();
   showDicePicture(player2._currentScore, 2);
   showScoreBoard(player2._sumScore, 2);
+  showRoundBoard(player2._numRoll, 2);
 
   if (player2._currentScore == 1){
     loseGameEnding(2);

@@ -6,7 +6,7 @@
 
 .box {
     color: whitesmoke;
-    font-size: 1.18rem;
+    font-size: 1.2rem;
     text-align: center;
     margin: 0px;
     padding: 0px;
@@ -19,22 +19,38 @@
 .box1 { background:#f1c40f;}
 .box2 { background:#e67e22;}
 .box3 { background:#2ed573;}
-.box4 { background:#1e90ff;}
-.box5 { background:red;}
-.box6 { background:#18dcff;}
+.box4 { background:#2ed573;}
+.box5 { background:#2ed573;}
+.box6 { background:#2ed573;}
+.box7 { background:#2ed573;}
 
 .box21 { background:#f1c40f;}
+.box22 { background:#e67e22;}
+.box23 { background:#2ed573;}
+.box24 { background:#2ed573;}
+.box25 { background:#2ed573;}
+.box26 { background:#2ed573;}
+.box27 { background:#2ed573;}
+
+/* .box21 { background:#f1c40f;}
 .box22 { background:#e67e22;}
 .box23 { background:#2ed573;}
 .box24 { background:#1e90ff;}
 .box25 { background:red;}
 .box26 { background:#18dcff;}
+.box27 { background:violet;} */
 
 body {
     margin:0;
     font-family: 'Poppins', sans-serif;
     padding: 1vh 4vw;
     background:#748CAB;
+}
+
+#bttnboard, #bttnboard2 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* Ripple effect */
@@ -51,6 +67,10 @@ body {
     background-color: #6eb9f7;
     background-size: 100%;
     transition: background 0s;
+}
+
+.ripple:disabled{
+    opacity:0.5;
 }
   
 /* Button style */
@@ -95,7 +115,9 @@ button {
 } 
 
 .box4, .box24{
+    font-size: 3rem;
+}
 
-    font-size: 2.5rem;
-
+.box3, .box23{
+    font-size: 3rem;
 }
